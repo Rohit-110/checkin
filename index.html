@@ -9,10 +9,9 @@
       const gridContainer = document.getElementById("gridContainer");
       const numRows = Math.floor(document.body.clientHeight/50);
       const numCols =Math.floor(document.body.clientWidth/50);
-      console.log(numCols);
-      console.log(numRows);
   
       document.documentElement.style.setProperty('--numCols', numCols);
+      document.documentElement.style.setProperty('--numRows', numRows);
       for (let i = 0; i < numRows * numCols; i++) {
         const gridItem = document.createElement("div");
         gridItem.classList.add("grid-item");
@@ -34,6 +33,7 @@
         overflow: hidden;
       display: grid;
       grid-template-columns: repeat(var(--numCols), 50px); 
+      grid-template-rows: repeat(var(--numRows), 50px); 
       grid-gap: 5px; 
     }
 
@@ -42,7 +42,7 @@
       height: 50px;
       background-color: #f0f0f0; 
       border: 1px solid white;
-      transition: background-color 0.3s ease;
+      transition: background-color .1s ease ;
       opacity: 20%;
     }
 
