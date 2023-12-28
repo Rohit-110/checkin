@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grid Hover Effect</title>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const gridContainer = document.getElementById("gridContainer");
+      const numRows = Math.floor(document.body.clientHeight/50);
+      const numCols =Math.floor(document.body.clientWidth/50);
+      console.log(numCols);
+      console.log(numRows);
+  
+      document.documentElement.style.setProperty('--numCols', numCols);
+      for (let i = 0; i < numRows * numCols; i++) {
+        const gridItem = document.createElement("div");
+        gridItem.classList.add("grid-item");
+        gridContainer.appendChild(gridItem);
+      }
+    });
+  </script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: rgb(20,20,20);
+    }
+
+    .grid-container {
+        overflow: hidden;
+      display: grid;
+      grid-template-columns: repeat(var(--numCols), 50px); 
+      grid-gap: 5px; 
+    }
+
+    .grid-item {
+      width: 50px; 
+      height: 50px;
+      background-color: #f0f0f0; 
+      border: 1px solid white;
+      transition: background-color 0.3s ease;
+      opacity: 20%;
+    }
+
+    .grid-item:hover {
+      background-color: #00ff00; 
+    }
+  </style>
+</head>
+<body>
+
+<div class="grid-container" id="gridContainer"></div>
+
+
+</body>
+</html>
